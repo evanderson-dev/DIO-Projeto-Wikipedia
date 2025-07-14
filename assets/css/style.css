@@ -34,6 +34,11 @@ header {
     z-index: 1000; /* Garante que fique acima do conteúdo */
 }
 
+body.dark-mode header {
+    background-color: #2c2c2c;
+    border-bottom: 1px solid #444;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -74,6 +79,15 @@ nav a:hover {
     text-decoration: underline;
 }
 
+body.dark-mode nav a {
+    color: #80bfff;
+}
+
+body.dark-mode nav a:hover {
+    color: #99ccff;
+    text-decoration: underline;
+}
+
 .theme-toggle-label {
     display: flex;
     align-items: center;
@@ -107,6 +121,8 @@ main {
     grid-template-columns: 200px 1fr 300px; /* Sidebar fixa, conteúdo principal expansivo, infobox fixa */
     gap: 1rem; /* Espaçamento entre colunas */
     align-items: start;
+    padding-right: 15px; /* Espaçamento à direita para evitar sobreposição com a infobox */
+    padding-left: 15px; /* Espaçamento à esquerda para evitar sobreposição com a sidebar */
 }
 
 @media (max-width: 1024px) {
@@ -184,7 +200,7 @@ body.dark-mode .sidebar a:hover {
 
 .main-content h1 {
     font-size: 2rem;
-    margin-bottom: 0.5rm;
+    margin-bottom: 0.5rem;
     text-align: center;
 }
 
@@ -211,15 +227,32 @@ body.dark-mode .sidebar a:hover {
     margin-bottom: 1rem;
 }
 
+body.dark-mode .main-content h1 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .main-content h2 {
+    color: #e0e0e0;
+}
+
+body.dark-mode .main-content h3 {
+    color: #e0e0e0;
+}
+
 /* Infobox styles */
 .infobox {
     grid-area: infobox;
     border: 1px solid #a2a9b1;
     border-radius: 2px;
     background-color: #f8f9fa;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     width: 100%;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .infobox {
+    background-color: #2c2c2c;
+    border-color: #555;
 }
 
 .infobox figure {
@@ -239,6 +272,10 @@ body.dark-mode .sidebar a:hover {
     margin-top: 0.3rem;
 }
 
+body.dark-mode .infobox figcaption {
+    color: #bbb;
+}
+
 .infobox table {
     width: 100%;
     border-collapse: collapse;
@@ -252,14 +289,31 @@ body.dark-mode .sidebar a:hover {
     font-weight: bold;
 }
 
+.infobox th[colspan="2"] {
+    text-align: center;
+}
+
+body.dark-mode .infobox th {
+    background-color: #444;
+    color: #e0e0e0;
+}
+
 .infobox td {
     padding: 0.3rem;
     border-top: 1px solid #eaecf0;
 }
 
+body.dark-mode .infobox td {
+    border-top-color: #555;
+    color: #e0e0e0;
+}
+
 .infobox tr:first-child th {
-    text-align: center;
     border-bottom: 1px solid #a2a9b1;
+}
+
+body.dark-mode .infobox tr:first-child th {
+    border-bottom-color: #555;
 }
 
 .infobox td:first-child {
@@ -282,6 +336,9 @@ body.dark-mode .sidebar a:hover {
     }
     .infobox td:first-child {
         background-color: #eaecf0;
+    }
+    body.dark-mode .infobox td:first-child {
+        background-color: #444;
     }
 }
 
